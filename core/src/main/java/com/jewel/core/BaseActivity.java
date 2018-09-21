@@ -1,6 +1,5 @@
 package com.jewel.core;
 
-import android.app.Application;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.view.Gravity;
@@ -29,6 +28,7 @@ public abstract class BaseActivity extends SupportActivity {
     private static final long WAIT_TIME = 2000L;
     private long TOUCH_TIME = 0;
 
+    private boolean doubleClick2Exit = false;
 
     protected abstract @LayoutRes
     int getContentLayout();
@@ -69,6 +69,10 @@ public abstract class BaseActivity extends SupportActivity {
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
     }
 
+    public void setDoubleClick2Exit(boolean doubleClick2Exit) {
+        this.doubleClick2Exit = doubleClick2Exit;
+    }
+
     @Override
     public FragmentAnimator onCreateFragmentAnimator() {
         return new DefaultHorizontalAnimator();
@@ -79,11 +83,15 @@ public abstract class BaseActivity extends SupportActivity {
         if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
             pop();
         } else {
-            if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
-                finish();
+            if(doubleClick2Exit) {
+                if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
+                    finish();
+                } else {
+                    TOUCH_TIME = System.currentTimeMillis();
+                    ToastUtils.showShort("再按一次退出");
+                }
             } else {
-                TOUCH_TIME = System.currentTimeMillis();
-                ToastUtils.showShort("再按一次退出");
+                super.onBackPressedSupport();
             }
         }
     }

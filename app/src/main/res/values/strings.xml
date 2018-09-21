@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">DriverExam</string>
+    <string name="app_name">驾考题海</string>
+
+    <string name="menu_one">科目一</string>
+    <string name="menu_four">科目四</string>
+    <string name="menu_category">题库分类</string>
+
+    <string name="menu_car">车辆查询</string>
+    <string name="menu_more">更多</string>
+
+    <string name="brand_name">子品牌/合资品牌：%s</string>
+    <string name="car_name">车系名称：%s</string>
+
+    <string name="menu_topic_pre">上一题</string>
+    <string name="menu_topic_explain">题解</string>
+    <string name="menu_topic_refresh">刷新</string>
+    <string name="menu_topic_next">下一题</string>
 </resources>

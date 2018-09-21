@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ExpandableListView
+        android:id="@+id/expand_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.bigkoo.quicksidebar.QuickSideBarView
+        android:id="@id/quickSideBarView"
+        android:layout_width="20dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="20dp"/>
+
+    <com.bigkoo.quicksidebar.QuickSideBarTipsView
+        android:id="@+id/quickSideBarTipsView"
+        android:layout_width="@dimen/height_quicksidebartips"
+        android:layout_height="match_parent"
+        android:layout_toStartOf="@+id/quickSideBarView"
+        app:sidebarBackgroundColor="@color/colorPrimary"
+        app:sidebarTextColor="@android:color/white"
+        app:sidebarTextSize="16sp" />
+</RelativeLayout>

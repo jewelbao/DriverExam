@@ -19,16 +19,17 @@ public class CallServer {
 
     private RequestQueue queue;
 
-    public <T, R> void request(int what, final Request<T> request, final IHttpCallback<R> callback) {
-        queue.add(what, request, new OnResponseListener<T>() {
+    public <SOURCE, RESULT> void request(int what, final Request<SOURCE> request, final IHttpCallback<RESULT> callback) {
+        queue.add(what, request, new OnResponseListener<SOURCE>() {
 
             @Override
             public void onStart(int what) {
+                callback.onStart(what);
             }
 
             @Override
-            public void onSucceed(int what, Response<T> response) {
-                BaseData<R> result = (BaseData<R>) response.get();
+            public void onSucceed(int what, Response<SOURCE> response) {
+                BaseData<RESULT> result = (BaseData<RESULT>) response.get();
                 if (result.isSuccess()) {
                     callback.onSuccess(what, result.getResult());
                 } else {
@@ -37,7 +38,7 @@ public class CallServer {
             }
 
             @Override
-            public void onFailed(int what, Response<T> response) {
+            public void onFailed(int what, Response<SOURCE> response) {
                 callback.onError(what, response.getException());
             }
 

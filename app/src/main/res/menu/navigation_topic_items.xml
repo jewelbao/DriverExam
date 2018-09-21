@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_one"
+        android:enabled="true"
+        android:icon="@mipmap/icon_pre"
+        android:title="@string/menu_topic_pre" />
+    <item
+        android:id="@+id/action_four"
+        android:enabled="true"
+        android:icon="@mipmap/icon_help"
+        android:title="@string/menu_topic_explain" />
+    <item
+        android:id="@+id/action_category"
+        android:enabled="true"
+        android:icon="@mipmap/icon_next"
+        android:title="@string/menu_topic_next" />
+</menu>

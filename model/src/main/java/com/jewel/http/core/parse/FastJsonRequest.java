@@ -2,13 +2,18 @@ package com.jewel.http.core.parse;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.jewel.model.BaseData;
+import com.jewel.model.ListData;
 import com.yanzhenjie.nohttp.Headers;
 import com.yanzhenjie.nohttp.RequestMethod;
 import com.yanzhenjie.nohttp.rest.Request;
 import com.yanzhenjie.nohttp.rest.StringRequest;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Jewel
@@ -18,17 +23,12 @@ import java.lang.reflect.Type;
 
 public class FastJsonRequest<T> extends Request<BaseData<T>> {
 
-    private Class<T> clz;
-    private final Type type ;
+    private Type type;
 
     public FastJsonRequest(String url, Class<T> clz) {
-        this(url, RequestMethod.GET, clz);
-    }
-
-    public FastJsonRequest(String url, RequestMethod requestMethod, Class<T> clz) {
-        super(url, requestMethod);
+        super(url, RequestMethod.GET);
         setAccept(Headers.HEAD_VALUE_CONTENT_TYPE_JSON);
-        type = new TypeReference<BaseData<T>>(clz){}.getType();
+        type = new TypeReference<BaseData<T>>(clz) {}.getType();
     }
 
     @Override

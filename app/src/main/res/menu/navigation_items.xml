@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_one"
+        android:enabled="true"
+        android:icon="@drawable/selector_one"
+        android:title="@string/menu_one" />
+    <item
+        android:id="@+id/action_four"
+        android:enabled="true"
+        android:icon="@drawable/selector_four"
+        android:title="@string/menu_four" />
+    <item
+        android:id="@+id/action_category"
+        android:enabled="true"
+        android:icon="@drawable/selector_category"
+        android:title="@string/menu_category" />
+</menu>

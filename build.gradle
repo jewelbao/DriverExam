@@ -28,7 +28,7 @@ buildscript {
                     'cardview'    : "com.android.support:cardview-v7:${versions.supportLibrary}",
                     'multidex'    : 'com.android.support:multidex:1.0.2',
                     'percent'     : "com.android.support:percent:${versions.supportLibrary}",
-                    'constraint'  : 'com.android.support.constraint:constraint-layout:1.1.0-beta6',
+                    'constraint'  : 'com.android.support.constraint:constraint-layout:1.1.3',
                     'guava'       : 'com.google.guava:guava:22.0-android',
             ],
             test                         : [
@@ -37,9 +37,9 @@ buildscript {
                     'espresso': 'com.android.support.test.espresso:espresso-core:3.0.2',
             ],
             lifecycle                    : [  // 谷歌开发架构组件
-                                              'runtime': "android.arch.lifecycle:runtime:1.1.0",
-                                              'extensions' : "android.arch.lifecycle:extensions:1.1.0",
-                                              'compiler' : "android.arch.lifecycle:compiler:1.1.0",
+                                              'runtime'   : "android.arch.lifecycle:runtime:1.1.0",
+                                              'extensions': "android.arch.lifecycle:extensions:1.1.0",
+                                              'compiler'  : "android.arch.lifecycle:compiler:1.1.0",
             ],
             butterknife                  : [  // 注解框架
                                               'core'    : "com.jakewharton:butterknife:${versions.butterknife}",
@@ -58,6 +58,7 @@ buildscript {
             ],
             http                         : 'com.yanzhenjie.nohttp:nohttp:1.1.9',
             json                         : 'com.alibaba:fastjson:1.2.9',
+            gson                         : 'com.google.code.gson:gson:2.8.2',
             lombok                       : 'org.projectlombok:lombok:1.16.20', // 实体注解工具, @http : https://projectlombok.org/setup/android
             /**  常备UI库*/
             SmartRefreshLayout           : [ //刷新容器
@@ -65,8 +66,8 @@ buildscript {
                                              'header': "com.scwang.smartrefresh:SmartRefreshHeader:${versions.SmartRefreshLayout}",
             ],
             fragmentation                : [
-                    'core'     : 'me.yokeyword:fragmentation:1.3.3',
-                    'swipeback': 'me.yokeyword:fragmentation-swipeback:1.3.3'
+                    'core'     : 'me.yokeyword:fragmentation:1.3.6',
+                    'swipeback': 'me.yokeyword:fragmentation-swipeback:1.3.6'
             ],
             utilcode                     : 'com.blankj:utilcode:1.13.6',  // 常用工具类 @Git地址：https://github.com/Blankj/AndroidUtilCode
 

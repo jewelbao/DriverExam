@@ -2,11 +2,16 @@ package com.jewel.model;
 
 import android.text.TextUtils;
 
+import java.util.List;
+
+import lombok.Data;
+
 /**
  * @author Jewel
  * @version 1.0
  * @since 2018/04/01
  */
+@Data
 public class BaseData<T> {
 
 
@@ -21,29 +26,5 @@ public class BaseData<T> {
 
     public boolean isSuccess() {
         return TextUtils.equals(retCode, "200");
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public T getResult() {
-        return result;
-    }
-
-    public void setResult(T result) {
-        this.result = result;
-    }
-
-    public String getRetCode() {
-        return retCode;
-    }
-
-    public void setRetCode(String retCode) {
-        this.retCode = retCode;
     }
 }

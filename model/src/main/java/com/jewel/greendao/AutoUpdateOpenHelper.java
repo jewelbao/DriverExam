@@ -6,8 +6,7 @@ import android.util.Log;
 
 import com.jewel.TAG;
 import com.jewel.greendao.auto.DaoMaster;
-import com.jewel.model.cookery.RecipeDetail;
-import com.jewel.model.cookery.RecipeInfo;
+import com.jewel.model.ExamData;
 
 import org.greenrobot.greendao.database.Database;
 
@@ -33,12 +32,9 @@ public class AutoUpdateOpenHelper extends DaoMaster.OpenHelper {
     public void onUpgrade(Database db, int oldVersion, int newVersion) {
         if (newVersion > oldVersion) {
             Log.d(TAG.SQL, String.format("AutoUpdateOpenHelper:数据库升级，老版本号为:%d,新版本号为:%d", oldVersion, newVersion));
-            Class[] classes = new Class[10];
-            classes[0] = RecipeInfo.class;
-            classes[1] = RecipeDetail.class;
+            Class[] classes = new Class[1];
+            classes[0] = ExamData.class;
             MigrationHelper.getInstance().migrate(db,classes);
         }
     }
-
-
 }

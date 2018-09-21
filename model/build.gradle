@@ -27,17 +27,18 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':core')
     testImplementation lib.test.junit
     androidTestImplementation lib.test.runner
     androidTestImplementation lib.test.espresso
     // 实体注解
-//    compileOnly(lib.lombok) {
-//        exclude group: "com.android.support"
-//    }
-//    annotationProcessor(lib.lombok) {
-//        exclude group: "com.android.support"
-//    }
+    compileOnly(lib.lombok) {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor(lib.lombok) {
+        exclude group: "com.android.support"
+    }
     // 网络请求
     api(lib.http) {
         exclude group: "com.android.support"
@@ -49,11 +50,22 @@ dependencies {
     api(lib.json) {
         exclude group: "com.android.support"
     }
-    api lib.greendao // add library
+    api(lib.gson) {
+        exclude group: "com.android.support"
+    }
+    api lib.greendao
+
+    api('com.github.promeg:tinypinyin:2.0.3') {// TinyPinyin核心包，约80KB
+        exclude group: "com.android.support"
+    }
+    api('com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3') {
+        // 可选，适用于Android的中国地区词典
+        exclude group: "com.android.support"
+    }
 }
 
 greendao {
-    schemaVersion 2  //版本
+    schemaVersion 1  //版本
     daoPackage 'com.jewel.greendao.auto'//设置DaoMaster、DaoSession、Dao包名
     targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
     //targetGenDirTest：设置生成单元测试目录

@@ -31,6 +31,9 @@ dependencies {
     api lib.support.v7
     api lib.support.v4
     api lib.support.recyclerview
+    api lib.support.constraint
+    api lib.support.cardview
+
     testImplementation lib.test.junit
     androidTestImplementation lib.test.runner
     androidTestImplementation lib.test.espresso
